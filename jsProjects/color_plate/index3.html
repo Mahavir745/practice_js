@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Plate</title>
+</head>
+<style>
+
+  .child{
+    width: 95px;
+    aspect-ratio: 1;
+    color: white;
+    text-align: center;
+  }
+  #childId2{
+    background-color: pink;
+  }
+  #childId3{
+    background-color: red;
+  }  
+  #childId4{
+    background-color: skyblue;
+  } 
+  #childId5{
+    background-color: yellow;
+  } 
+</style>
+<body>
+  <header></header>
+  <main>
+    <div class="container">
+        <h1>Color plate</h1>
+      <button class="child" id="childId2"></button>
+      <button class="child" id="childId3"></button>
+      <button class="child" id="childId4"></button>
+      <button class="child" id="childId5"></button>
+      <button class="child" id="childId6"></button>
+
+    </div>
+  </main>
+  <footer></footer>
+</body>
+<script>
+  const button=document.querySelectorAll("button");
+  const body=document.querySelector("body");
+
+  // console.log(button)
+
+  button.forEach(function(button){
+   
+    button.addEventListener('click', function(e){
+      
+      switch(e.target.id){
+        case "childId2": body.style.backgroundColor='pink';
+        break;
+        case "childId3": body.style.backgroundColor='red';
+        break;
+        case "childId4": body.style.backgroundColor='skyblue';
+        break;
+        case "childId5": body.style.backgroundColor='yellow';
+        break;
+        default: body.style.backgroundColor="white";
+      }
+    })
+  })
+
+</script>
+</html>

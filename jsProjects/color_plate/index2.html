@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index2</title>
+</head>
+<style>
+  button{
+    width: 75px;
+    aspect-ratio: 1;
+    border: none;
+  }
+  #button1{
+    background-color: brown;
+    border-radius:0% 50%;
+  }
+  #button2{
+    background-color: skyblue;
+    border-radius:50% 0%;
+  }
+  #button3{
+    background-color: green;
+    border-radius:50% 0%;
+  }
+  #button4{
+    background-color: yellow;
+    border-radius:0% 50%;
+  }
+</style>
+<body>
+  <h1>Color plate-2</h1>
+  <div>
+  <button id="button1"></button>
+  <button id="button2"></button>
+  <button id="button3"></button>
+  <button id="button4"></button>
+  <button id="button5"></button>
+</div>
+</body>
+<script>
+  const button=document.querySelectorAll("button");
+  const body=document.querySelector("body");
+
+  button.forEach(function(button){
+    button.addEventListener("mouseover", function(e){
+
+      switch(e.target.id){
+        case "button1": body.style.backgroundColor="brown";
+        break;
+        case "button2": body.style.backgroundColor="skyblue";
+        break;
+        case "button3": body.style.backgroundColor="green";
+        break;
+        case "button4": body.style. backgroundColor="yellow";
+        break;
+        case "button5": body.style.backgroundColor="white";
+        break;
+      }
+    })
+  })
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Learning</title>
+</head>
+<style>
+  
+</style>
+<body class="bg-background">
+  <div>
+    <h1 id="title" class="heading">DOM learning is <span style="display: none;">not display</span>begain</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <ul id="list">
+      <li class="list-element">red</li>
+      <li class="list-element">yellow</li>
+      <li class="list-element">green</li>
+      <li class="list-element">pink</li>
+    </ul>
+  </div>
+</body>
+<script>
+  const parent=document.querySelector("#list");  //<!--TODO: ITS HELP TO SELECT ELEMENTS-->
+  console.log(parent);
+  console.log(parent.children); //<!--todo: its help to see the child of a parent div or element-->
+  console.log(parent.children[3].innerHTML);
+  parent.style.border="2px solid green"
+
+  //<!--todo: print all inner html value by using loop->
+  for(let i=0; i<parent.children.length; i++){
+    console.log(parent.children[i].innerHTML);
+  }
+
+  parent.children[1].style.color='blue' //<!--! its help to style our elements->
+  console.log(parent.firstElementChild); // its target the first value
+  console.log(parent.lastElementChild); // its target the last value
+  
+
+  const list=document.querySelector('.list-element');
+  console.log(list); //<!--todo: its give only first value of an element>
+  console.log(list.parentElement);//<!--! Its move child element to parent element->
+  console.log(list.nextElementSibling); // its gives the next value of an element
+
+  console.log(parent.childNodes); /**<!--! ITs shows the type of tree. lets go through deep explaination -> <ul id="list">
+      <li class="list-element">red</li>
+      <li class="list-element">yellow</li>
+      <li class="list-element">green</li>
+      <li class="list-element">pink</li>
+    </ul>
+    
+    <!--! its give's 9 nodelist
+      1- enter
+      2 - li
+      3-enter
+      4 -li
+      5- enter
+      6 - li
+      7- enter
+      8 - li
+      9 -enter:-->*/
+
+</script>
+</html>

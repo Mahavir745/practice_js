@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Making a addition form</title>
+</head>
+<body>
+  <label for="val1">Enter first Number:</label>
+  <input type="number" id="val1">
+  <br>
+  <br>
+  <label for="val2">Enter second Number:</label>
+  <input type="number" id="val2">
+  <br><br>
+  <button onclick="addition()">Submit</button>
+  <p id="result"></p>
+  
+</body>
+
+<script>
+  function addition(){
+    const num1=Number(document.querySelector("#val1").value);
+    const num2=Number(document.querySelector("#val2").value);
+
+    const add= num1+num2;
+    console.log(add);
+
+    document.querySelector("#result").innerHTML= "addition:"+add;
+   
+  }
+</script>
+</html>
