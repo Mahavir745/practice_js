@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eventfinal</title>
+</head>
+<style>
+
+  body{
+    background-color: black;
+  }
+
+  li{
+    list-style-type: none;
+  }
+  h1{
+    color: white;
+    text-align: center;
+  }
+  .listBox{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    /* border: 1px solid red; */
+
+   & div{
+    width: 175px;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    align-items: center;
+    aspect-ratio: 1;
+    border-radius: 8px;
+  }
+
+  & .child1{
+    background-color: lightblue;
+  }
+  & .child2{
+    background-color: lightcoral;
+  }
+  & .child3{
+    background-color: lightpink;
+  }
+  & .child4{
+    background-color: lightgrey;
+  }
+  & .child5{
+    background-color: lightgoldenrodyellow;
+  }
+  & .child6{
+    background-color: lightseagreen;
+  }
+
+}
+</style>
+<body>
+  <h1>Remove Boxes</h1>
+  <ul class="listBox">
+    <li><div class="listChild child1">1</div></li>
+    <li><div class="listChild child2">2</div></li>
+    <li><div class="listChild child3">3</div></li>
+    <li><div class="listChild child4">4</div></li>
+    <li><div class="listChild child5">5</div></li>
+    <li><div class="listChild child6">6</div></li>
+    <li><div class="listChild child1">1</div></li>
+    <li><div class="listChild child2">2</div></li>
+    <li><div class="listChild child3">3</div></li>
+    <li><div class="listChild child4">4</div></li>
+    <li><div class="listChild child5">5</div></li>
+
+  </ul>
+</body>
+<script>
+  document.querySelector(".listBox").addEventListener('click',function(e){
+   if(e.target.tagName === 'DIV'){
+    remove=e.target.parentNode;
+    remove.remove();
+   };
+  console.log(e.target.tagName);
+  },false)
+</script>
+</html>
