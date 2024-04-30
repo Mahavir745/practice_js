@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asyncronious Js</title>
+</head>
+<body>
+
+  <h1 id="quote">Self Motivated Peson: </h1>
+
+  <button id="stop">Stop</button>
+  
+</body>
+<script>
+
+  // const interval=function(){
+  //   console.log("Mahavir");
+  // }
+
+  // setInterval(interval, 2000);
+
+  // setInterval(function(){
+  //   console.log("Mahavir");
+  // }, 2000);
+
+
+  // it we want to change the text at certain time of priod we can.
+
+  // setTimeout(function(){
+  //   document.querySelector("#quote").innerHTML=" Self Motivated Mahavir"
+  // }, 2000);
+
+  // const timeout= function(){
+  //   document.querySelector("#quote").innerHTML="Self Motivated Mahavir:"
+  // }
+
+  // setTimeout(timeout,2000);
+
+
+  //now if we stop it: using clearTimeOut();
+  
+    let timeout=function(){
+      document.querySelector("#quote").innerHTML="Self Motivated Mahavir: ";
+    }
+    const stop = setTimeout(timeout,2000);
+    
+
+</script>
+</html>

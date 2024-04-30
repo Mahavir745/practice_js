@@ -1,3 +1,4 @@
 {
-  "livePreview.defaultPreviewPath": "/jsProjects/GuessGame/index.html"
+  "livePreview.defaultPreviewPath": "/jsProjects/GuessGame/index.html",
+  "liveServer.settings.port": 5501
 }
