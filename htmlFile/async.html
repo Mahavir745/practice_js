@@ -10,6 +10,7 @@
   <h1 id="quote">Self Motivated Peson: </h1>
 
   <button id="stop">Stop</button>
+  <button id="play">Play</button>
   
 </body>
 <script>
@@ -40,11 +41,41 @@
 
   //now if we stop it: using clearTimeOut();
   
-    let timeout=function(){
-      document.querySelector("#quote").innerHTML="Self Motivated Mahavir: ";
-    }
-    const stop = setTimeout(timeout,2000);
+  //   let timeout=function(){
+  //     document.querySelector("#quote").innerHTML="Self Motivated Mahavir: ";
+  //   }
+  //   const stop = setTimeout(timeout,2000);
+
+  //   document.querySelector("#stop").addEventListener('click',function(){
+  //     clearTimeout(stop);
+  //     console.log("Stopeed");
+  //   })
+
+  //  document.querySelector("#play").addEventListener('click',function(){
+  //   setTimeout(timeout,2000);
+  //   console.log("Play");
+  //  })
     
-    
+    // in same place if we use setInterval and clearInterval output will be::.
+
+const running = function(){
+  console.log("mahavir", Date.now());
+}
+let set;
+
+document.querySelector("#play").addEventListener('click', function(){
+  set = setInterval(running,2000);
+  console.log("Running");
+},false);
+
+document.querySelector("#stop").addEventListener('click', function(){
+  clearTimeout(set);
+  console.log("Stopped");
+},false);
+
+
+
+
+
 </script>
 </html>
