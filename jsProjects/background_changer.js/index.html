@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Changer</title>
+</head>
+<style>
+
+div{
+  margin: auto;
+  width: 70%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 7px;
+  border:2px solid;
+  color: white;
+  background-color: black;
+}
+
+button{
+  padding: 10px 20px;
+  font-weight: 800;
+  color: skyblue;
+  border: none;
+  box-shadow: 2px 2px 3px;
+}
+</style>
+<body>
+  <div>
+  <h1>Background Changer</h1>
+  <button id="start">Start</button>
+  <button id="stop">stop</button>
+</div>
+<div id="info"></div>
+</body>
+<script>
+
+  const body=document.querySelector('body');
+  const info=document.querySelector("#info");
+  const randomColor = function(){
+    const hex="0123456789ABCDEF";
+    let color='#'
+
+    for(let i=0; i<6; i++){
+      color+=hex[Math.floor(Math.random()*6)]
+    }
+    return color;
+  }
+
+  // console.log(randomColor());
+
+  let running=function(){
+  let colorChange=body.style.backgroundColor = randomColor();
+  return colorChange;
+  }
+  let set;
+
+  document.querySelector("#start").addEventListener('click',function(){
+   set= setInterval(running,1000);
+   info.innerHTML='Started'
+
+  },false);
+
+  document.querySelector("#stop").addEventListener('click',function(){
+    clearInterval(set);
+    set=null;
+   info.innerHTML='Stopped'
+
+  },false);
+</script>
+</html>
