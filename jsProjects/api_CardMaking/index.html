@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card</title>
+</head>
+<style>
+div{
+  margin: auto;
+  width: 300px;
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+  padding: 20px;
+}
+button{
+  border: none;
+  padding: 4px 20px;
+  color: aqua;
+  background-color: white;
+  box-shadow: 2px 2px 3px;
+  border-radius: 4px;
+}
+</style>
+<body>
+  
+  <div class="info">
+    <h1>Cards: </h1>
+    <p>Click the button to show:</p>
+    <br>
+    <button id="click">Click Here: </button>
+  </div>
+  <br>
+  <div id="card">
+    
+  </div>
+
+</body>
+<script>
+  const card = document.querySelector("#card");
+  const button = document.querySelector("#click");
+  let image, followers;
+
+  const url = "https://api.github.com/users/Mahavir745";
+  let xml = new XMLHttpRequest();
+  xml.open('GET', url);
+
+  xml.onreadystatechange = function(){
+
+    if(xml.readyState === 4 && xml.status === 200) {  //xml.staus ===200 (HTTP OK)
+      const object = JSON.parse(this.response);
+      image = object.avatar_url;
+      followers=object.followers;
+
+      button.addEventListener("click", function(){
+        const img = document.createElement("img");
+        const para = document.createElement("p");
+
+        img.src = image;
+        para.innerHTML= `Total Followers: ${followers}`;
+        card.appendChild(img);
+        card.appendChild(para);
+  
+
+
+        para.style.textAlign='center'
+        card.style.width="200px"
+        img.style.width="100%"
+        
+     
+      }, false);
+    }
+  }
+  xml.send();
+
+</script>
+</html>
