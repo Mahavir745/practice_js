@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background Changer</title>
+</head>
+<style>
+   div{
+    width: 70%;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    background-color: black;
+    box-shadow: 2px 2px 3px;
+    margin: auto;
+  }
+  button{
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  color: aqua;
+  box-shadow: 2px 2px 3px;
+
+}
+</style>
+<body>
+  <div><h1>Background Changer</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </div>
+  <div id="info"></div>
+</body>
+<script>
+  const body=document.querySelector("body");
+  const info=document.querySelector("#info");
+
+  //making random 
+  let randomcolor=function(){
+  let color='#';
+  let hex="0123456789ABCDEF";
+
+  for(let i=0; i<6; i++){
+    color+= hex[Math.floor(Math.random()*6)];
+  }
+  return color;
+  }
+
+  let backgroundchange=function(){
+    let random=body.style.backgroundColor=randomcolor();
+  }
+
+  let set;
+  document.querySelector("#start").addEventListener("click",function(){
+    set=setInterval(backgroundchange,1000);
+    info.innerHTML="Started"
+  },false)
+
+  document.querySelector("#stop").addEventListener("click",function(){
+    clearInterval(set);
+    info.innerHTML="Stopped"
+  },false)
+
+
+</script>
+</html>
