@@ -1,0 +1,12 @@
+body{
+  background-color: rgba(0, 0, 0, 0.871);
+
+}
+form{
+ outline: 2px solid green;
+
+  & label{
+    font-weight: 500;
+    color: white;
+  }
+}
