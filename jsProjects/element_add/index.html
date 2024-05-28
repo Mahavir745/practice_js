@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element_add</title>
+</head>
+<style>
+
+body{
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card{
+    width:105px;
+    height: 175px;
+    border: 10px solid rgb(61, 24, 247);
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    background-color: rgb(75, 84, 89);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+  }
+  .add-card{
+    width: 75px;
+    height: 75px;
+    border:none;
+    border-radius: 50%;
+    font-size: 75px;
+    float: right;
+    position:absolute;
+    top: -0;
+    
+  }
+</style>
+<body>
+  <h1>Add and Remove Boxes:</h1>
+  <div class="container">
+  </div>
+  <div class="card add-card" title="add new card">+</div>
+
+  <script>
+    const addCard = document.querySelector(".add-card");
+    const container = document.querySelector(".container")
+    let count=1;
+
+    addCard.addEventListener("click", function(){
+      const newcard=document.createElement('div')
+      newcard.classList.add('card');
+      newcard.innerText = count++;
+      container.append(newcard)
+    })
+
+    container.addEventListener("click", (e)=>{
+      if(e.target !== container){
+        e.target.remove()
+      }
+    })
+
+
+
+    
+
+  </script>
+</body>
+</html>
