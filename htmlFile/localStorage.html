@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage</title>
+</head>
+<body>
+  <input type="text" id="display">
+  <p>Your name: <span id="value"></span></p>
+  <input type="text" id="agevalue">
+  <p>Your Age: <span id="age"></span></p>
+</body>
+<script>
+  const display= document.querySelector("#display")
+  const valueAge=document.querySelector("#agevalue")
+  const value=document.querySelector("#value")
+  const age= document.querySelector("#age")
+  
+  // value.innerText = localStorage.getItem('myName')
+  // display.addEventListener("input",(e)=>{
+  //   // localStorage.myName=e.target.value;
+  //   localStorage.setItem("myName" , e.target.value)
+  //   value.innerText = localStorage.getItem("myName")
+  // })
+
+  // const myDate={
+  //   name:"",
+  //   age:""
+  // }
+
+  let myDate = JSON.parse(localStorage.getItem("myDate")) || {}
+  value.innerText=myDate.name;
+  age.innerText= myDate.age;
+
+ display.addEventListener("input",(e)=>{
+  myDate.name=e.target.value
+  localStorage.setItem('myDate', JSON.stringify(myDate))
+  value.innerText=e.target.value
+ 
+ })
+ valueAge.addEventListener("input",(e)=>{
+  myDate.age=e.target.value
+  localStorage.setItem('myDate', JSON.stringify(myDate))
+  age.innerText=e.target.value;
+ })
+
+
+</script>
+</html>
