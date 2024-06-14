@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Callback Hell</h1>
+</body>
+<script>
+  // const xml= new XMLHttpRequest()
+  // xml.responseType='json'
+  // xml.addEventListener("load", ()=>{
+  //   console.log(xml.response);
+
+  // })
+  // xml.open("GET","https://dummyjson.com/users")
+  // xml.send()
+
+
+  // function HttpRequest(method, url,callback){
+  //   const xml = new XMLHttpRequest()
+  //   xml.responseType='json'
+  //   xml.addEventListener("load",()=>{
+  //     callback(xml.response)
+  //   })
+
+  //   xml.open(method,url)
+  //   xml.send()
+  // }
+
+  // HttpRequest("GET","https://dummyjson.com/users", (data)=>{
+  //   console.log(data);
+  //   HttpRequest("GET",`https://dummyjson.com/users/${data.users[0].id}`, (data)=>{
+  //     console.log(data);
+  //   })
+  // })
+
+  function Https(method,url,callback){
+  const xml= new XMLHttpRequest();
+  xml.responseType="json"
+  xml.addEventListener("load", ()=>{
+    callback(xml.response);
+  })
+
+  xml.open(method, url)
+  xml.send()
+}
+
+Https("GET","https://dummyjson.com/users",(userData)=>{
+  Https("GET",`https://dummyjson.com/posts/user/${userData.users[0]}`,(post)=>{
+    console.log(post);
+  })
+})
+</script>
+</html>
